@@ -1,12 +1,12 @@
 import '../styles/characterCards.css'
-export default function Cards({display, visibleCharacters, charactersInfo, setVisibleCharacters }) {
+export default function Cards({updateScore, visibleCharacters}) {
 
   return visibleCharacters.map((character) => {
     return (
       <div
         key={character.id}
         onClick={() =>
-            display(charactersInfo, setVisibleCharacters)
+            updateScore(character.id)
         }
         className="character"
       >

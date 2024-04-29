@@ -1,27 +1,52 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import '../styles/App.css'
 import Cards from './characterCards'
+import DialogBox from './dialogBox';
 
 function App() {
-  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
   const [charactersInfo, setCharactersInfo] = useState([]);
   const [visibleCharacters, setVisibleCharacters] = useState([]);
+  const [clickedCharacters, setClickedCharacters] = useState([]);
+  const [gameOver, setGameOver] = useState(false);
+  const dialogRef = useRef();
 
   useEffect(() => {
     marvelAPIHandler(setCharactersInfo, setVisibleCharacters);
   }, []);
 
+  if(gameOver) dialogRef.current.showModal();
+
+  function updateScore(id){
+    if(!clickedCharacters.includes(id)) {
+      if(clickedCharacters.length === bestScore) setBestScore(bestScore + 1);
+      setClickedCharacters([...clickedCharacters, id]);
+      if(clickedCharacters.length + 1 == 10) setGameOver(true);
+      randomCharactersToDisplay(charactersInfo, setVisibleCharacters);
+    } else setGameOver(true);
+ }
+
+ function reset(){
+  setClickedCharacters([]);
+  setGameOver(false);
+  dialogRef.current.close();
+}
+
   return (
     <>
       <h1>MARVEL</h1>
+      <main>
       <div className="score-board">
-        <p className="current">Score: {score}</p>
-        <p className="best">Best Score: 0</p>
+        <p className="current">Score: {clickedCharacters.length}</p>
+        <p className="best">Best Score: {bestScore}</p>
       </div>
-      <Cards display={randomCharactersToDisplay} charactersInfo={charactersInfo} visibleCharacters={visibleCharacters} setVisibleCharacters={setVisibleCharacters}/>
+      <Cards updateScore={updateScore} visibleCharacters={visibleCharacters}/>
+      <DialogBox clickHandler={reset} dialogRef={dialogRef} won={clickedCharacters.length === 10} />
+      </main>
     </>
   )
 }
+
 
 function extractCharacters(results) {
   console.log(results);
