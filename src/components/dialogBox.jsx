@@ -1,7 +1,7 @@
 // eslint-disable-next-line react/prop-types
 export default function DialogBox({won, dialogRef, clickHandler, initialRender}){
     const imageUrlLose = window.innerWidth <= 450 ? '/ABRAHAM-ERSKINE-LOSE-350PX.png' : '/ABRAHAM-ERSKINE-LOSE.png';
-    const imageUrlWin = window.innerWidth <= 450 ? '/BLACK-CAT-WIN-350PX.jpeg' : '/BLACK-CAT-WIN.jpeg';
+    const imageUrlWin = window.innerWidth <= 450 ? '/BLACK-CAT-WIN-350PX-2.jpeg' : '/BLACK-CAT-WIN.jpeg';
 
     if(initialRender){
         return <dialog className='rules-dialog' ref={dialogRef}>
