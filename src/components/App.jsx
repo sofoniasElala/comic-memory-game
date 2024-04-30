@@ -16,7 +16,10 @@ function App() {
     dialogRef.current.showModal();
   }, []);
 
-  if(gameOver) dialogRef.current.showModal();
+  useEffect(() => {
+    if(gameOver) dialogRef.current.showModal();
+  }, [gameOver]);
+
 
   function updateScore(id){
     if(!clickedCharacters.includes(id)) {
