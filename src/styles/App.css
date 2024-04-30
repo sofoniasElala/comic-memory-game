@@ -115,6 +115,11 @@ footer {
   text-align: center;
   animation: unveil-footer 2s ease-in-out 1 forwards;
 }
+.attribution {
+  font-size: 15px;
+  float: right;
+  padding: 10px 10px 0px;
+}
 
 @keyframes unveil-footer {
   from {

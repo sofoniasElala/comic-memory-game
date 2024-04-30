@@ -51,12 +51,13 @@ function App() {
 
 
 function extractCharacters(results) {
-  console.log(results);
   return results.map((character) => {
+    const regex = /[:]/g;
+    const securePath = character.thumbnail.path.slice(0, character.thumbnail.path.search(regex)) + 's' + character.thumbnail.path.slice(character.thumbnail.path.search(regex))
     return {
       id: character.id,
       name: character.name,
-      url: `${character.thumbnail.path}/${window.innerWidth <= 450 ? 'portrait_xlarge' : 'portrait_incredible'}.${character.thumbnail.extension}`,
+      url: `${securePath}/${window.innerWidth <= 450 ? 'portrait_xlarge' : 'portrait_incredible'}.${character.thumbnail.extension}`,
     };
   });
 }
