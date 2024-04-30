@@ -7,7 +7,8 @@
 ## Screenshots
 ![thumbnail](public/memory-game-screenshot-1.png)
 ![thumbnail-2](public/memory-game-screenshot-2.png)
-![thumbnail-2](public/resume-builder-PDF-screenshot.png)
+## screenshots - mobile
+![thumbnail-2](public/memory-game-screenshot-3.png)
 
 ## Technologies Used:
 
