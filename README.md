@@ -8,7 +8,7 @@
 ![thumbnail](public/memory-game-screenshot-1.png)
 ![thumbnail-2](public/memory-game-screenshot-2.png)
 ## screenshots - mobile
-![thumbnail-2](public/memory-game-screenshot-3.png)
+![thumbnail-2](public/memory-game-screenshot-3.PNG)
 
 ## Technologies Used:
 
