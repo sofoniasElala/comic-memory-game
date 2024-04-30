@@ -1,8 +1,7 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: start;
+  height: 100%;
 }
 
 
@@ -13,6 +12,115 @@
 }
 
 #root > h1 {
+  position: sticky;
+  z-index: 2;
+  top: 16px;
   background-color: #ed1d24;
   color: aliceblue;
+  margin: 0px 0px 20px;
+  padding-left: 5px;
+  animation: header-width 3s ease-in-out  1 forwards;
+}
+
+@keyframes header-width {
+  from {
+    width: 15%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.scoreboard > p {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 0px 0px 5px;
+}
+.scoreboard {
+  margin-bottom: 35px;
+}
+
+dialog {
+  padding: 0px;
+  border-radius: 15px;
+}
+dialog h1, dialog button {
+  margin-left: 25px;
+}
+
+dialog::backdrop {
+  background-color: white;
+  opacity: .5;
+}
+
+.rules-dialog h1{
+  margin: 15px;
+  font-size: 45px;
+}
+.rules-dialog {
+  padding: 10px;
+}
+.rules-dialog .x {
+  padding: 9px 18px;
+  font-size: 30px;
+  float: right;
+}
+
+.scoreboard p {
+  top: 30px;
+  position: fixed;
+  z-index: 3;
+  color: white;
+}
+.scoreboard .best {
+  right: 150px;
+}
+.scoreboard .current {
+  right: 50px;
+}
+.sub-title {
+  position: fixed;
+  z-index: 3;
+  color: white;
+  font-size: larger;
+  top: 5px;
+  left: 160px;
+}
+
+
+@media (max-width: 450px) {
+  .character h5, .sub-title {
+      font-size: 16px;
+  }
+  .scoreboard p {
+    font-size: 19px;
+  }
+
+  .scoreboard .best{
+    top: 38px;
+    right: 90px;
+  }
+  .scoreboard .current {
+    top: 38px;
+    right: 25px;
+  }
+  .sub-title {
+    top: 15px;
+    left: 155px;
+  }
+}
+footer {
+  font-size: 25px;
+  padding-bottom: 10px;
+  text-align: center;
+  animation: unveil-footer 2s ease-in-out 1 forwards;
+}
+
+@keyframes unveil-footer {
+  from {
+    opacity: .1;
+  }
+  to {
+    opacity: 1;
+  }
 }

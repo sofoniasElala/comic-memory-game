@@ -4,6 +4,7 @@
     height: 80px;
     margin: 0px;
     padding: 10px;
+    font-size:larger;
     border-top: 5px solid rgb(214, 14, 14);
 }
 
@@ -16,5 +17,17 @@
     margin-bottom: 20px;
     border-top-left-radius: 25px;
     border-bottom-right-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 1) 0px 3px 8px;
     overflow: hidden;
+}
+.character:hover {
+    filter: drop-shadow(0 0 2em #8a1515aa);
+}
+
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-around;
 }

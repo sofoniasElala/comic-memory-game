@@ -13,6 +13,7 @@ function App() {
 
   useEffect(() => {
     marvelAPIHandler(setCharactersInfo, setVisibleCharacters);
+    dialogRef.current.showModal();
   }, []);
 
   if(gameOver) dialogRef.current.showModal();
@@ -35,13 +36,14 @@ function App() {
   return (
     <>
       <h1>MARVEL</h1>
+      <h5 className='sub-title'>memory game</h5>
       <main>
-      <div className="score-board">
+      <div className="scoreboard">
         <p className="current">Score: {clickedCharacters.length}</p>
         <p className="best">Best Score: {bestScore}</p>
       </div>
-      <Cards updateScore={updateScore} visibleCharacters={visibleCharacters}/>
-      <DialogBox clickHandler={reset} dialogRef={dialogRef} won={clickedCharacters.length === 10} />
+      <div className="cards"><Cards updateScore={updateScore} visibleCharacters={visibleCharacters}/></div> 
+      <DialogBox clickHandler={reset} dialogRef={dialogRef} won={clickedCharacters.length === 10} initialRender={clickedCharacters.length === 0} />
       </main>
     </>
   )
@@ -54,7 +56,7 @@ function extractCharacters(results) {
     return {
       id: character.id,
       name: character.name,
-      url: `${character.thumbnail.path}/portrait_incredible.${character.thumbnail.extension}`,
+      url: `${character.thumbnail.path}/${window.innerWidth <= 450 ? 'portrait_xlarge' : 'portrait_incredible'}.${character.thumbnail.extension}`,
     };
   });
 }
